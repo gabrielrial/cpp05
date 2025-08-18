@@ -16,12 +16,21 @@ public:
 
 	Form(const std::string &name, int sign, int execute);
 
-	void Form::beSigned(const Bureaucrat &Bureaucrat);
+	void beSigned(const Bureaucrat &Bureaucrat);
 
 	std::string getName() const;
 	int getToSign() const;
 	int getToExecute() const;
-	std::string getSigned() const;
+	bool getSigned() const;
+
+	class GradeTooHighException : public std::exception
+	{
+	public:
+		const char *what() const throw()
+		{
+			return "Grade is too high!";
+		}
+	};
 
 	class GradeTooLowException : public std::exception
 	{
@@ -34,7 +43,7 @@ public:
 
 private:
 	const std::string _name;
-	bool _signed = false;
+	bool _signed;
 	const int _GradeToSign;
 	const int _GradeToExecute;
 };
