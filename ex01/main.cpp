@@ -6,16 +6,14 @@ int main()
 	try
 	{
 		Form formulario("Test1", 5, 6);
-		Bureaucrat Gabriel("Gabriel", 1);
+		Bureaucrat b("hola", 280);
 
-		//formulario.beSigned(Gabriel);
+		Bureaucrat Gabriel(b);
+
+		formulario.beSigned(Gabriel);
 		std::cout << formulario << std::endl;
 	}
-	catch (const Form::GradeTooLowException &e)
-	{
-		std::cerr << "Exception caught: " << e.what() << std::endl;
-	}
-	catch (const Form::GradeTooHighException &e)
+	catch(const std::exception &e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}
