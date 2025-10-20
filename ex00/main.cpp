@@ -6,20 +6,16 @@ int main()
 {
 	try
 	{
-		Bureaucrat b1("Bob", 2);
+		Bureaucrat b1("Bob", 150);
 		std::cout << b1 << std::endl;
 
-		b1.increment();
-		std::cout << "After increment: " << b1 << std::endl;
+		b1.decrement();
+		std::cout << "After decrement: " << b1 << std::endl;
 
-		b1.increment();
 		std::cout << "Problem if the code continues" << std::endl;
+		b1.increment();
 	}
-	catch (const Bureaucrat::GradeTooHighException &e)
-	{
-		std::cerr << "Exception caught: " << e.what() << std::endl;
-	}
-	catch (const Bureaucrat::GradeTooLowException &e)
+	catch (std::exception & e)
 	{
 		std::cerr << "Exception caught: " << e.what() << std::endl;
 	}

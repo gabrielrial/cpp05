@@ -5,13 +5,17 @@ int main()
 {
 	try
 	{
-		Form formulario("Test1", 5, 6);
-		Bureaucrat b("hola", 280);
+		Form form("Form", 5, 6);
+		Bureaucrat gabriel("Gabriel", 1);
+		Bureaucrat minion("Esbirro", 150);
 
-		Bureaucrat Gabriel(b);
+		std::cout << form << std::endl;
+		minion.singFrom(form);
+		std::cout << form << std::endl;
 
-		formulario.beSigned(Gabriel);
-		std::cout << formulario << std::endl;
+
+		form.beSigned(gabriel);
+		std::cout << form << std::endl;
 	}
 	catch(const std::exception &e)
 	{

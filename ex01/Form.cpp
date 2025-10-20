@@ -16,7 +16,6 @@ Form::Form(const Form &other)
 	  _GradeToSign(other._GradeToSign),
 	  _GradeToExecute(other._GradeToExecute) {}
 
-
 Form &Form::operator=(const Form &other)
 {
 	if (this != &other)
@@ -29,7 +28,10 @@ Form::~Form() {}
 void Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_GradeToSign)
-		throw GradeTooLowException();
+	{
+		std::cout << bureaucrat.getName() << " could not sign the form " << Form::getName() << " becuase grade is low." <<std::endl;
+		return;
+	}
 	_signed = true;
 	std::cout << bureaucrat.getName() << " signed " << Form::getName() << std::endl;
 }

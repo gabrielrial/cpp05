@@ -29,27 +29,27 @@ Intern::~Intern()
 
 AForm *Intern::makeForm(std::string form_name, std::string form_target)
 {
-    AForm *form = NULL;
-    std::string forms[3] = {"presidential request", "robotomy request", "shrubbery request"};
+	AForm *form = NULL;
+	std::string forms[3] = {"presidential request", "robotomy request", "shrubbery request"};
 
-    AForm* (Intern::*makeform[3])(std::string) = {
-        &Intern::makePresidential,
-        &Intern::makeRobotomyRequest,
-        &Intern::makeShrubberyCreation,
-    };
+	AForm *(Intern::*makeform[3])(std::string) = {
+		&Intern::makePresidential,
+		&Intern::makeRobotomyRequest,
+		&Intern::makeShrubberyCreation,
+	};
 
-    for (int i = 0; i < 3; i++)
-    {
-        if (forms[i] == form_name)
-        {
-            form = (this->*makeform[i])(form_target);
-            std::cout << "Intern creates " << form_name << std::endl;
-            break;
-        }
-    }
+	for (int i = 0; i < 3; i++)
+	{
+		if (forms[i] == form_name)
+		{
+			form = (this->*makeform[i])(form_target);
+			std::cout << "Intern creates " << form_name << std::endl;
+			break;
+		}
+	}
 
-    if (!form)
-        throw std::runtime_error("Form name not found: " + form_name);
+	if (!form)
+		throw std::runtime_error("Form name not found: " + form_name);
 
-    return form;
+	return form;
 }
