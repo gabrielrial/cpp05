@@ -57,7 +57,20 @@ std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
 	return os;
 }
 
-void Bureaucrat::singFrom(AForm &form)
+void Bureaucrat::singForm(AForm &form)
 {
-	form.beSigned(*this);
+	try
+	{
+		if (form.getSigned())
+		{
+			std::cout << form.getName() << " is already signed" << std::endl;
+			return;
+		}
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch (const std::exception &e)
+	{
+		std::cout << _name << " could not sign " << form.getName() << " because " << e.what() << std::endl;
+	}
 }

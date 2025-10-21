@@ -28,12 +28,9 @@ Form::~Form() {}
 void Form::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_GradeToSign)
-	{
-		std::cout << bureaucrat.getName() << " could not sign the form " << Form::getName() << " becuase grade is low." <<std::endl;
-		return;
-	}
-	_signed = true;
-	std::cout << bureaucrat.getName() << " signed " << Form::getName() << std::endl;
+		throw GradeTooLowException();
+	if (!this->getSigned())
+		_signed = true;
 }
 
 std::string Form::getName() const { return _name; }

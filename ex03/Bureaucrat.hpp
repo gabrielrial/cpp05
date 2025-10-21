@@ -22,6 +22,7 @@ public:
 
 	const std::string &getName() const;
 	int getGrade() const;
+	void singForm(AForm &form);
 
 	void executeForm(AForm const & form);
 

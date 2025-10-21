@@ -9,13 +9,14 @@ int main()
 		Bureaucrat gabriel("Gabriel", 1);
 		Bureaucrat minion("Esbirro", 150);
 
-		std::cout << form << std::endl;
-		minion.singFrom(form);
-		std::cout << form << std::endl;
+		std::cout << form << std::endl << std::endl;
+		minion.singForm(form);
+		std::cout << form << std::endl << std::endl;
 
+		gabriel.singForm(form);
+		std::cout << form << std::endl << std::endl;
 
-		form.beSigned(gabriel);
-		std::cout << form << std::endl;
+		gabriel.singForm(form);
 	}
 	catch(const std::exception &e)
 	{

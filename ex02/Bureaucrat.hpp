@@ -23,7 +23,7 @@ public:
 	int getGrade() const;
 
 	void executeForm(AForm const & form);
-	void singFrom(AForm &form);
+	void singForm(AForm &form);
 
 	class GradeTooHighException : public std::exception
 	{

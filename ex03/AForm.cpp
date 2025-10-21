@@ -34,8 +34,8 @@ void AForm::beSigned(const Bureaucrat &bureaucrat)
 {
 	if (bureaucrat.getGrade() > this->_GradeToSign)
 		throw GradeTooLowException();
-	_signed = true;
-	std::cout << bureaucrat.getName() << " signed " << AForm::getName() << std::endl;
+	if (!this->getSigned())
+		_signed = true;
 }
 
 std::string AForm::getTarget() const { return _target; }
